@@ -3,6 +3,7 @@ import webbrowser
 import pyttsx3
 
 
+
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 
@@ -13,30 +14,36 @@ def speak(text):
 
 def ProcessCommand(c):
     print(c)
-    if c.lower() == "open facebook":
-        webbrowser.open("https://www.facebook.com/")
-        speak("Opening facebook")
-    elif c.lower() == "open google":
-        webbrowser.open("https://www.google.co.in/")
-        speak("Opening google")
-    elif c.lower() == "open youtube":
-        webbrowser.open("https://www.youtube.com/")
-        speak("Opening youtube")
-    elif c.lower() == "open instagram":
-        webbrowser.open("https://www.instagram.com/")
-        speak("Opening instagram")
-    elif c.lower() == "open twitter":
-        webbrowser.open("https://www.twitter.com/")
-        speak("Opening twitter")
-    elif c.lower() == "open linkedin":
-        webbrowser.open("https://www.linkedin.com/")
-        speak("Opening linkedin")
-    elif c.lower() == "open github":
-        webbrowser.open("https://www.github.com/")
-        speak("Opening github")
-        
-    pass
+  
+    if c.lower() == "open stackoverflow":
+        webbrowser.open("https://www.stackoverflow.com/")
+        speak("Opening stackoverflow")
+    elif c.lower() == "open gmail":
+        webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
+        speak("Opening gmail")
+    elif c.lower() == "open music library":
+        webbrowser.open("https://www.youtube.com/watch?v=ZZ5zTOpuR7o&list=LL")
+        speak("Opening music library")
+    elif c.lower().startswith("play"):
+        song = c.lower().split(" ")[1:]
+        song_name = " ".join(song)
+        youtube_url = f"https://www.youtube.com/results?search_query={song_name}"
+        webbrowser.open(youtube_url)
+        speak(f"Playing {song_name} on YouTube")
+    elif c.lower().startswith("open"):
+        app = c.lower().split(" ")[1:]
+        app_name = " ".join(app)
+        webbrowser.open(f"https://www.{app_name}.com")
+        speak(f"Opening {app_name}")
+    elif c.lower().startswith("search"):
+        search = c.lower().split(" ")[1:]
+        search_name = " ".join(search)
+        search_url = f"https://www.google.com/search?q={search_name}"
+        webbrowser.open(search_url)
+        speak(f"Searching {search_name} on Google")
 
+ 
+ 
 
 if __name__ =="__main__":
     speak("Initializing Jarvis")
@@ -45,7 +52,7 @@ while True:
     # obtain audio from the microphone
     r = sr.Recognizer()
 
-
+ 
 
 
     # recognize speech using Sphinx
@@ -53,7 +60,7 @@ while True:
     try:
         with sr.Microphone() as source:
             print("Listening....")
-            audio = r.listen(source,timeout=2,phrase_time_limit=2)    
+            audio = r.listen(source,timeout=2,phrase_time_limit=1)    
         word =r.recognize_google(audio)
 
         if (word.lower() == "jarvis"):
