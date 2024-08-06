@@ -1,8 +1,9 @@
 import speech_recognition as sr
 import webbrowser
 import pyttsx3
-
-
+import subprocess
+import os
+import wikipedia
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
@@ -10,7 +11,6 @@ engine = pyttsx3.init()
 def speak(text):
     engine.say(text)  
     engine.runAndWait()
-
 
 def ProcessCommand(c):
     print(c)
@@ -41,9 +41,19 @@ def ProcessCommand(c):
         search_url = f"https://www.google.com/search?q={search_name}"
         webbrowser.open(search_url)
         speak(f"Searching {search_name} on Google")
-
- 
- 
+    elif c.lower().startswith("run"):
+        application = c.lower().split(" ")[1:]
+        application_name = " ".join(application)
+        subprocess.run(application_name)
+        speak(f"Running {application_name}")
+    elif c.lower().startswith("tell me about"):
+        topic = c.lower().split(" ")[3:]
+        topic_name = " ".join(topic)
+        try:
+            result = wikipedia.summary(topic_name, sentences=2)
+            speak(result)
+        except wikipedia.exceptions.DisambiguationError:
+            speak("Sorry, I couldn't find any information on that topic.")
 
 if __name__ =="__main__":
     speak("Initializing Jarvis")
@@ -51,9 +61,6 @@ while True:
     #Listen For The Wake Word Jarvis
     # obtain audio from the microphone
     r = sr.Recognizer()
-
- 
-
 
     # recognize speech using Sphinx
     print("recognizing...")
@@ -73,7 +80,6 @@ while True:
             command =r.recognize_google(audio)
 
             ProcessCommand(command)
-
 
     except Exception as e:
         print("Error; {0}".format(e))
