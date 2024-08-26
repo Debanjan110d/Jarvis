@@ -4,60 +4,68 @@ This is a simple voice-activated assistant named Jarvis, created by Debanjan Dut
 
 ## Features
 
-- **Open Websites**: Open popular websites like StackOverflow, Gmail, and a music library.
-- **Play Music**: Play music directly from YouTube by specifying the song name.
-- **Search the Web**: Perform a Google search for any query.
-- **Run Applications**: Run local applications on your computer.
-- **Wikipedia Information**: Get summaries from Wikipedia on any topic.
+-  **Open Websites**: Open popular websites like StackOverflow, Gmail, and a music library.
+-  **Play Music**: Play music directly from YouTube by specifying the song name.
+-  **Search the Web**: Perform a Google search for any query.
+-  **Run Applications**: Run local applications on your computer.
+-  **Wikipedia Information**: Get summaries from Wikipedia on any topic.
 
 ## Setup
 
 ### Prerequisites
 
-- Python 3.x
-- Required Python libraries (specified in `requirements.txt`)
+-  Python 3.x
+-  Required Python libraries (specified in `requirements.txt`)
 
 ### Installation
 
 1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/Debanjan110d/Jarvis.git
-    cd Jarvis
-    ```
+
+   ```bash
+   git clone https://github.com/Debanjan110d/Jarvis.git
+   cd Jarvis
+   ```
 
 2. **Install the required libraries:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+**Important Note:**
+After running `pip install -r requirements.txt`, you may encounter an issue with pyAudio installation. To resolve this, run the following command:
+`bash
+    pip install pyaudio
+    `
 
 ### Usage
 
 1. **Run the script:**
-    ```bash
-    python main.py
-    ```
+
+   ```bash
+   python main.py
+   ```
 
 2. **Interact with Jarvis:**
-    - Say "Jarvis" to wake up the assistant.
-    - Give a command, such as:
-      - "Open StackOverflow"
-      - "Play [song name]"
-      - "Search [query]"
-      - "Run [application]"
-      - "Tell me about [topic]"
+   -  Say "Jarvis" to wake up the assistant.
+   -  Give a command, such as:
+      -  "Open StackOverflow"
+      -  "Play [song name]"
+      -  "Search [query]"
+      -  "Run [application]"
+      -  "Tell me about [topic]"
 
 ### Commands
 
-- **Open Websites**: 
-  - Example: "Open StackOverflow"
-- **Play Music**: 
-  - Example: "Play Shape of You"
-- **Search the Web**: 
-  - Example: "Search Python tutorials"
-- **Run Applications**: 
-  - Example: "Run notepad"
-- **Wikipedia Information**: 
-  - Example: "Tell me about Python programming"
+-  **Open Websites**:
+   -  Example: "Open StackOverflow"
+-  **Play Music**:
+   -  Example: "Play Shape of You"
+-  **Search the Web**:
+   -  Example: "Search Python tutorials"
+-  **Run Applications**:
+   -  Example: "Run notepad"
+-  **Wikipedia Information**:
+   -  Example: "Tell me about Python programming"
 
 ## Troubleshooting
 
@@ -73,6 +81,6 @@ Feel free to fork the repository and submit pull requests. For major changes, pl
 
 ## Acknowledgments
 
-- This project uses [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) for voice recognition.
-- [Pyttsx3](https://pypi.org/project/pyttsx3/) is used for text-to-speech.
-- [Wikipedia API](https://pypi.org/project/wikipedia-api/) is used to fetch information from Wikipedia.
+-  This project uses [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) for voice recognition.
+-  [Pyttsx3](https://pypi.org/project/pyttsx3/) is used for text-to-speech.
+-  [Wikipedia API](https://pypi.org/project/wikipedia-api/) is used to fetch information from Wikipedia.
